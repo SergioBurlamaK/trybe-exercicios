@@ -1,3 +1,3 @@
 # trybe-exercicios
 
-Suposicao de alteracoes previamente feitas supostamente 
+# Meu repositório de exercícios
