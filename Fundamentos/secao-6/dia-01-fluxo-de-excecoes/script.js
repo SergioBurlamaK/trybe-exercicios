@@ -12,18 +12,18 @@ const promo = [
     { product: "bola de basquete", price: 39.99 },
 ];
 
-const button = document.querySelector('#send-button');
+const button = document.querySelector("#send-button");
 
-button.addEventListener('click', () => {
-    const name = document.querySelector('#name-id').value;
-    const number = document.querySelector('#number-id').value;
+button.addEventListener("click", () => {
+    const name = document.querySelector("#name-id").value;
+    const number = document.querySelector("#number-id").value;
 
     showPromo(name, number);
 });
 
 const showPromo = (name, number) => {
-    const firstText = document.querySelector('#text-initial');
-    const secondText = document.querySelector('#text-final');
+    const firstText = document.querySelector("#text-initial");
+    const secondText = document.querySelector("#text-final");
 
     try {
         checkName(name);
@@ -36,22 +36,25 @@ const showPromo = (name, number) => {
         ${productObject.product} no valor de R$ ${productObject.price}`;
     } catch (err) {
         secondText.innerHTML = err.message;
+    } finally {
+        document.querySelector("#name-id").value = "";
+        document.querySelector("#number-id").value = "";
     }
-}
+};
 const checkName = (name) => {
     let letters = /[aA-zZ]+/;
 
     if (!name.match(letters)) {
-        throw new Error('É necessário digitar um nome válido');
+        throw new Error("É necessário digitar um nome válido");
     }
-}
+};
 
 // Segunda parte
 const checkNumber = (number) => {
     if (isNaN(number)) {
-        throw new Error('É necessário digitar um número');
+        throw new Error("É necessário digitar um número");
     }
-}
+};
 
 // Terceira parte
 const checkPromo = (number) => {
@@ -60,10 +63,10 @@ const checkPromo = (number) => {
             return promo[index];
         }
     }
-}
+};
 
 const checkValidRange = (number) => {
     if (number < 1 || number > 10) {
-        throw new Error('É necessário digitar um número entre 1 e 10')
+        throw new Error("É necessário digitar um número entre 1 e 10");
     }
-}
+};
